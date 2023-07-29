@@ -1,27 +1,33 @@
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
+function book(title, author, pages, read) {
     //CONSTRUCTOR
-    this.title
-    this.author
-    this.pages
-    this.read
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.read = read
     //DISPLAYS INFO
-    this.info = function () {
-        return `${title} by ${author}, ${pages} pages, ${read}`
-    }
+    this.info = function () { return `${title} by ${author}, ${pages} pages, ${read}` }
 }
 
-function addBookToLibrary(newBook) {
-    //DO STUFF
-    myLibrary.push(newBook)
-}
+const betterCallSaul = new book('Better Call Saul', 'Saul Goodman', 300, 'read')
 
+myLibrary.push(betterCallSaul)
 
-//DEFINE TABLE
 const table = document.querySelector('.table')
 
-function displayBooks(myLibrary) {
-    for (const book in myLibrary) {
-    }
+book.prototype.displayBook = function () {
+    let tableRow = table.insertRow(-1)
+    let title = tableRow.insertCell(-1)
+    title.textContent = `${this.title}`
+    let author = tableRow.insertCell(-1)
+    author.textContent = `${this.author}`
+    let pages = tableRow.insertCell(-1)
+    pages.textContent = `${this.pages}`
+    let read = tableRow.insertCell(-1)
+    read.textContent = `${this.read}`
 }
+
+betterCallSaul.displayBook()
+//console.log(myLibrary)
+//console.log(myLibrary[0].title)
