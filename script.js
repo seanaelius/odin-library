@@ -11,23 +11,46 @@ function book(title, author, pages, read) {
 }
 
 const betterCallSaul = new book('Better Call Saul', 'Saul Goodman', 300, 'read')
+const hobbit = new book('The Hobbit', 'J.R.R Tolkien', 400, 'not read')
 
-myLibrary.push(betterCallSaul)
+function addBookToLibrary(name) {
+    myLibrary.push(name)
+}
+
+addBookToLibrary(betterCallSaul)
+addBookToLibrary(hobbit)
 
 const table = document.querySelector('.table')
 
-book.prototype.displayBook = function () {
-    let tableRow = table.insertRow(-1)
-    let title = tableRow.insertCell(-1)
-    title.textContent = `${this.title}`
-    let author = tableRow.insertCell(-1)
-    author.textContent = `${this.author}`
-    let pages = tableRow.insertCell(-1)
-    pages.textContent = `${this.pages}`
-    let read = tableRow.insertCell(-1)
-    read.textContent = `${this.read}`
+
+function displayLibrary() {
+
+    //DEFINE DISPLAYBOOK
+    book.prototype.displayBook = function () {
+        //CREATE ROW
+        let tableRow = table.insertRow(-1)
+        //CREATE CELL FOR TITLE
+        let title = tableRow.insertCell(-1)
+        title.textContent = `${this.title}`
+        //CREATE CELL FOR AUTHOR
+        let author = tableRow.insertCell(-1)
+        author.textContent = `${this.author}`
+        //CREATE CELL FOR PAGES
+        let pages = tableRow.insertCell(-1)
+        pages.textContent = `${this.pages}`
+        //CREATE CELL FOR READ OR NOT
+        let read = tableRow.insertCell(-1)
+        read.textContent = `${this.read}`
+    }
+
+    //LOOP THROUGH EACH ITEM IN LIBRARY
+    //DISPLAY BOOK
+    for (item in myLibrary) {
+        myLibrary[item].displayBook()
+    }
 }
 
-betterCallSaul.displayBook()
-//console.log(myLibrary)
-//console.log(myLibrary[0].title)
+
+const updateButton = document.querySelector('#update')
+updateButton.addEventListener('click', displayLibrary)
+
