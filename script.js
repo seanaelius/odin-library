@@ -50,7 +50,14 @@ function displayLibrary() {
     }
 }
 
-
 const updateButton = document.querySelector('#update')
 updateButton.addEventListener('click', displayLibrary)
 
+//ADD EVENT LISTENER FOR NEW BOOK BUTTON
+//MAKE PAGE OPAQUE
+//CREATE FORM ON PAGE
+//HAVE SUBMIT NOT SEND TO SERVER 
+//USE PREVENT DEFAULT
+//technical documentation: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
+//CREATE DELETE BUTTON
+//ADD READ TOGGLE OPTION FOR EACH BOOK

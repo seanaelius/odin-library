@@ -9,30 +9,56 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
+<!--IDEAL LAYOUT HERE https://mooniidev.github.io/library/-->
 
 <body>
-    <h1>The Odin Project Library</h1>
+    <main>
+        <section>
+            <h1>The Odin Project Library</h1>
 
-    <table class="table">
-        <!--HEADER-->
-        <thead>
-            <tr>
-                <th colspan="4">MASTERCHEFCANADA's Books</th>
-            </tr>
-        </thead>
+            <table class="table">
+                <!--HEADER-->
+                <thead>
+                    <tr>
+                        <th colspan="4">MASTERCHEFCANADA's Books</th>
+                    </tr>
+                </thead>
 
-        <!--BODY-->
-        <tbody class="body">
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Pages</th>
-                <th>Read</th>
-            </tr>
-            <!--ADD TABLE ROWS HERE-->
-        </tbody>
-    </table>
-    <button id="update">Update Table</button>
+                <!--BODY-->
+                <tbody class="body">
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Pages</th>
+                        <th>Read</th> <!--NEED TO ADD TOGGLE FOR READ OPTION-->
+                        <!--NEED TO ADD TRASH BUTTON-->
+                    </tr>
+                    <!--IN SCRIPT.JS, displayLibrary() WILL ADD ROWS HERE-->
+                </tbody>
+            </table>
+            <!--ADD NEW BOOK BUTTON-->
+            <button id="update">Update Table</button>
+        </section>
+        <aside class="side-form">
+            <form action="" method="get">
+
+                <label for="title">Title: </label>
+                <input type="text">
+
+                <label for="author">Author: </label>
+                <input type="text">
+
+                <label for="pages">Pages: </label>
+                <input type="text">
+
+                <label for="read" class="switch">Read:
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </form>
+            <button type="submit">Submit</button>
+        </aside>
+    </main>
 </body>
 
 </html>
