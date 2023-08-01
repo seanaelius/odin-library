@@ -22,8 +22,14 @@ addBookToLibrary(hobbit)
 
 const table = document.querySelector('.table')
 
+let clear = 0;
+
 
 function displayLibrary() {
+
+    //CHECK IF TABLE NEEDS TO BE CLEARED
+    //IF CLEAR = 0, ADD 1
+    //IF CLEAR = 1, REMOVE 1, REMOVE CONTENT OF TABLE
 
     //DEFINE DISPLAYBOOK
     book.prototype.displayBook = function () {
@@ -54,8 +60,7 @@ const updateButton = document.querySelector('#update')
 updateButton.addEventListener('click', displayLibrary)
 
 //ADD EVENT LISTENER FOR NEW BOOK BUTTON
-//MAKE PAGE OPAQUE
-//CREATE FORM ON PAGE
+//CREATE DOM ELEMENTS FOR FORM ON RIGHT SIDE OF PAGE
 //HAVE SUBMIT NOT SEND TO SERVER 
 //USE PREVENT DEFAULT
 //technical documentation: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
