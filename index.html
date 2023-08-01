@@ -20,7 +20,7 @@
                 <!--HEADER-->
                 <thead>
                     <tr>
-                        <th colspan="4">MASTERCHEFCANADA's Books</th>
+                        <th colspan="5">MASTERCHEFCANADA's Books</th>
                     </tr>
                 </thead>
 
@@ -31,6 +31,7 @@
                         <th>Author</th>
                         <th>Pages</th>
                         <th>Read</th> <!--NEED TO ADD TOGGLE FOR READ OPTION-->
+                        <th>Delete</th>
                         <!--NEED TO ADD TRASH BUTTON-->
                     </tr>
                     <!--IN SCRIPT.JS, displayLibrary() WILL ADD ROWS HERE-->
@@ -41,20 +42,28 @@
         </section>
         <aside class="side-form">
             <form action="" method="get">
+                <div class="title">
+                    <label for="title">Title: </label>
+                    <input type="text">
+                </div>
 
-                <label for="title">Title: </label>
-                <input type="text">
+                <div class="author">
+                    <label for="author">Author: </label>
+                    <input type="text">
+                </div>
 
-                <label for="author">Author: </label>
-                <input type="text">
+                <div class="pages">
+                    <label for="pages">Pages: </label>
+                    <input type="text">
+                </div>
 
-                <label for="pages">Pages: </label>
-                <input type="text">
+                <div class="read">
+                    <label for="read" class="switch">Read:
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
 
-                <label for="read" class="switch">Read:
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
             </form>
             <button type="submit">Submit</button>
         </aside>

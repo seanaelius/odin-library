@@ -5,3 +5,25 @@ td {
     border: 2px solid black;
     padding: 20px;
 }
+
+main {
+    display: flex;
+}
+
+section,
+aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+section {
+    width: 70vw;
+}
+
+aside {
+    width: 30vw;
+    background-color: rgb(255, 146, 146);
+}
