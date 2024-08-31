@@ -56,5 +56,6 @@ for (const book in myLibrary){
     for (var info in currentBook) {
         console.log(info)
         console.log(currentBook[info])
+        row.insertCell().textContent = `${currentBook[info]}`;
     }
 }
