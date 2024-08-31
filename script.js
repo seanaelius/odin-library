@@ -14,24 +14,24 @@ function book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function(){
-        return this.title + " by " + this.author + ", " + this.pages + " pages, " + this.read
-    }
+    //this.info = function(){
+        //return this.title + " by " + this.author + ", " + this.pages + " pages, " + this.read
+    //}
 }
 
 const theHobbit = new book('The Hobbit','J.R.R. Tolkien', '295', 'No');
 
-console.log(theHobbit.info());
+//console.log(theHobbit.info());
 console.log(Object.getPrototypeOf(theHobbit) === book.prototype);
 
 /*The original object "theHobbit" inherits from the book prototype. 
 Therefore if I define a function on the prototype, theHobbit can access this function. */
 
-book.prototype.sayHello = function(){
-    return "Hello!"
-}
+//book.prototype.sayHello = function(){
+    //return "Hello!"
+//}
 
-console.log(theHobbit.sayHello());
+//console.log(theHobbit.sayHello());
 
 /*What the original is based off of. 
 We can use this to save memory or inherit properties from the prototype*/
@@ -47,13 +47,14 @@ function addBookToLibrary(book) {
 
 
 addBookToLibrary(theHobbit)
-console.log(myLibrary)
+console.log(theHobbit)
 
 for (const book in myLibrary){
     tbody.appendChild(row);
-    for (const info in book) {
-        row.append(data);
-        data.textContent = `${book.info}`
+    var currentBook = myLibrary[book];
+    console.log(currentBook)
+    for (var info in currentBook) {
         console.log(info)
+        console.log(currentBook[info])
     }
 }
