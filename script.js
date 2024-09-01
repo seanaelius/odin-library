@@ -61,6 +61,15 @@ for (const book in myLibrary){
 }
 
 const bookAddButton = document.querySelector("button#bookAdd");
+let i = 0;
 bookAddButton.addEventListener("click", () => {
-   main.appendChild(bookAside) ;
+    if (i == 0) {
+        main.appendChild(bookAside); 
+        bookAddButton.textContent = "Done adding a book!"
+        i += 1;
+    } else {
+        main.removeChild(bookAside);
+        bookAddButton.textContent = "Add a book!"
+        i -= 1;
+    }
 })
