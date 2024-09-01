@@ -51,4 +51,8 @@ aside {
     height: 80vh;
     background-color: beige;
     margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
