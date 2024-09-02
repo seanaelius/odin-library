@@ -40,8 +40,14 @@
                         <input id="pages" type="text" name="pages" required>
                     </div>
                     <div class="read">
-                        <label for="read">Read:</label>
-                        <input form="read" type="text" name="read" id="read">
+                        <div>
+                            <label for="read">Read:</label>
+                            <input type="radio" name="read" id="read" value="yes">
+                        </div>
+                        <div>
+                            <label for="not-read">Not read:</label>
+                            <input type="radio" name="read" id="not-read" value="no" checked>
+                        </div>
                     </div>
 
                     <button type="submit" id="submit">Done</button>

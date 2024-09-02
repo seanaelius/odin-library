@@ -16,7 +16,6 @@ const dialogAside = document.querySelector("dialog")
 const titleInput = document.querySelector("input#title");
 const authorInput = document.querySelector("input#author");
 const pagesInput = document.querySelector("input#pages");
-const readInput = document.querySelector("input#read");
 
 const bookAddButton = document.querySelector("button#bookAdd");
 bookAddButton.addEventListener("click", () => {dialogAside.showModal() })
@@ -31,12 +30,11 @@ submitButton.addEventListener("click", (event)=> {
     var newTitle = titleInput.value
     var newAuthor = authorInput.value
     var newPages = pagesInput.value
-    var haveRead = readInput.value
+    let haveRead = document.querySelector('input[name="read"]:checked').value;
 
     var newBook = new book(newTitle, newAuthor, newPages, haveRead)
     addBookToLibrary(newBook)
     createRowAndCells(newBook)
-    console.log(myLibrary)
 })
 
 
@@ -76,7 +74,7 @@ function addBookToLibrary(book) {
 }
 
 
-addBookToLibrary(new book('The Hobbit','J.R.R. Tolkien', '295', 'No'))
+addBookToLibrary(new book('The Hobbit','J.R.R. Tolkien', '295', 'no'))
 //console.log(theHobbit)
 
 //LOAD LIBRARY ON PAGE FUNCTION
@@ -94,6 +92,7 @@ function createRowAndCells(book) {
         newRow.insertCell().textContent = `${book[info]}`;
     }
 }
+
 
 
 
