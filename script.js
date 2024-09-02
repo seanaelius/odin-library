@@ -116,12 +116,9 @@ const bookAddButton = document.querySelector("button#bookAdd");
 let i = 0;
 bookAddButton.addEventListener("click", () => {
     if (i == 0) {
-        main.appendChild(bookAside); 
-        bookAside.appendChild(bookForm)
         bookAddButton.textContent = "Done adding a book!"
         i += 1;
-    } else {
-        main.removeChild(bookAside);
+    } else {    
         bookAddButton.textContent = "Add a book!"
         i -= 1;
     }
