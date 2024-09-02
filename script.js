@@ -31,13 +31,15 @@ submitButton.addEventListener("click", (event)=> {
     let newPages = pagesInput.value
     let haveRead = document.querySelector('input[name="read"]:checked').value;
 
-
+    //CLEAR LIBRARY FROM TABLE
     clearLibrary(myLibrary)
 
+    //ADD NEW BOOK TO LIBRARY
     var newBook = new book(newTitle, newAuthor, newPages, haveRead)
-    
     addBookToLibrary(newBook)
-    createRowAndCells(newBook)
+
+    //UPDATE TABLE
+   displayLibrary(myLibrary)
 })
 
 
@@ -99,9 +101,13 @@ function createRowAndCells(book) {
 //INITIAL LOAD LIBRARY
 displayLibrary(myLibrary)
 
+//CLEAR LIBRARY FUNCTIONS
 function clearLibrary(library){ 
     for (const book in library) {
-        let newRow = document.createElement("tr");
-        tbody.removeChild(tbody.lastChild)
+        removeLast()
     }
+}
+
+function removeLast(){
+    tbody.removeChild(tbody.lastChild)
 }
