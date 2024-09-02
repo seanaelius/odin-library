@@ -17,7 +17,29 @@ const titleInput = document.querySelector("input#title");
 const authorInput = document.querySelector("input#author");
 const pagesInput = document.querySelector("input#pages");
 const readInput = document.querySelector("input#read");
+
+const bookAddButton = document.querySelector("button#bookAdd");
+bookAddButton.addEventListener("click", () => {dialogAside.showModal() })
+
+const closeButton = document.querySelector("button#close")
+closeButton.addEventListener("click", ()=> {dialogAside.close()})
+
+
 const submitButton = document.querySelector("button#submit")
+submitButton.addEventListener("click", (event)=> {
+    event.preventDefault()
+    var newTitle = titleInput.value
+    var newAuthor = authorInput.value
+    var newPages = pagesInput.value
+    var haveRead = readInput.value
+
+    var newBook = new book(newTitle, newAuthor, newPages, haveRead)
+    addBookToLibrary(newBook)
+    createRowAndCells(newBook)
+    console.log(myLibrary)
+})
+
+
 
 //BOOK CONSTRUCTOR
 function book(title, author, pages, read) {
@@ -69,35 +91,10 @@ for (const book in myLibrary){
     }
 }
 
-const bookAddButton = document.querySelector("button#bookAdd");
-let i = 0;
-bookAddButton.addEventListener("click", () => {
-    if (i == 0) {
-        dialogAside.showModal()
-        i += 1;
-    } else {    
-        dialogAside.close()
-        i -= 1;
-    }
-})
-
-submitButton.addEventListener("click", (event)=> {
-    event.preventDefault()
-    var newTitle = titleInput.value
-    var newAuthor = authorInput.value
-    var newPages = pagesInput.value
-    var haveRead = readInput.value
-
-    var newBook = new book(newTitle, newAuthor, newPages, haveRead)
-
-    console.log(newBook)
-    
-    
-    addBookToLibrary(newBook)
-    console.log(myLibrary)
+function createRowAndCells(book) {
     let newRow = document.createElement("tr");
     tbody.appendChild(newRow);
-    for (var info in newBook){
-        newRow.insertCell().textContent = `${newBook[info]}`;
+    for (var info in book){
+        newRow.insertCell().textContent = `${book[info]}`;
     }
-})
+}
