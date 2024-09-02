@@ -12,6 +12,12 @@ tbody.appendChild(row);
 //DEFINE DIALOG ELEMENT
 const dialogAside = document.querySelector("dialog")
 
+//DEFINE FORM INPUT FIELDS
+const titleInput = document.querySelector("input#title");
+const authorInput = document.querySelector("input#author");
+const pagesInput = document.querySelector("input#pages");
+const readInput = document.querySelector("input#read");
+const submitButton = document.querySelector("button#submit")
 
 //BOOK CONSTRUCTOR
 function book(title, author, pages, read) {
@@ -21,7 +27,7 @@ function book(title, author, pages, read) {
     this.read = read;
 }
 
-const theHobbit = new book('The Hobbit','J.R.R. Tolkien', '295', 'No');
+
 
 //console.log(theHobbit.info());
 //console.log(Object.getPrototypeOf(theHobbit) === book.prototype);
@@ -48,9 +54,10 @@ function addBookToLibrary(book) {
 }
 
 
-addBookToLibrary(theHobbit)
+addBookToLibrary(new book('The Hobbit','J.R.R. Tolkien', '295', 'No'))
 //console.log(theHobbit)
 
+//LOAD LIBRARY ON PAGE
 for (const book in myLibrary){
     tbody.appendChild(row);
     var currentBook = myLibrary[book];
@@ -71,5 +78,26 @@ bookAddButton.addEventListener("click", () => {
     } else {    
         dialogAside.close()
         i -= 1;
+    }
+})
+
+submitButton.addEventListener("click", (event)=> {
+    event.preventDefault()
+    var newTitle = titleInput.value
+    var newAuthor = authorInput.value
+    var newPages = pagesInput.value
+    var haveRead = readInput.value
+
+    var newBook = new book(newTitle, newAuthor, newPages, haveRead)
+
+    console.log(newBook)
+    
+    
+    addBookToLibrary(newBook)
+    console.log(myLibrary)
+    let newRow = document.createElement("tr");
+    tbody.appendChild(newRow);
+    for (var info in newBook){
+        newRow.insertCell().textContent = `${newBook[info]}`;
     }
 })

@@ -25,26 +25,27 @@
         </div>
         <dialog closed>
             <aside class="bookForm">
-                <h2>Book Information</h2>
+                <legend><h2>Book Information</h2></legend>
                 <form action="" method="post">
                     <div class="title">
-                        <label for="">Title:</label>
-                        <input type="text">
+                        <label for="title">Title:</label>
+                        <input id="title" type="text" required>
                     </div>
                     <div class="author">
-                        <label for="">Author:</label>
-                        <input type="text">
+                        <label for="author">Author:</label>
+                        <input id="author" type="text" required>
                     </div>
                     <div class="pages">
-                        <label for="">Pages:</label>
-                        <input type="text">
+                        <label for="pages">Pages:</label>
+                        <input id="pages" type="text" required>
                     </div>
                     <div class="read">
-                        <label for="">Read:</label>
-                        <input type="text">
+                        <label for="read">Read:</label>
+                        <input form="read" type="text" id="read">
                     </div>
 
-                    <input type="submit" value="Done!">
+                    <button type="submit" id="submit">Done</button>
+                    <button type="reset">Reset</button>
                 </form>
             </aside>
         </dialog>
