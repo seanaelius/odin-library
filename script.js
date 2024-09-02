@@ -79,18 +79,14 @@ function addBookToLibrary(book) {
 addBookToLibrary(new book('The Hobbit','J.R.R. Tolkien', '295', 'No'))
 //console.log(theHobbit)
 
-//LOAD LIBRARY ON PAGE
-for (const book in myLibrary){
-    tbody.appendChild(row);
-    var currentBook = myLibrary[book];
-    //console.log(currentBook)
-    for (var info in currentBook) {
-        //console.log(info)
-        //console.log(currentBook[info])
-        row.insertCell().textContent = `${currentBook[info]}`;
+//LOAD LIBRARY ON PAGE FUNCTION
+function loadLibrary(library) {
+    for (const book in library) {
+        createRowAndCells(library[book])
     }
 }
 
+//CREATE ROW AND CELLS FUNCTION
 function createRowAndCells(book) {
     let newRow = document.createElement("tr");
     tbody.appendChild(newRow);
@@ -98,3 +94,8 @@ function createRowAndCells(book) {
         newRow.insertCell().textContent = `${book[info]}`;
     }
 }
+
+
+
+//INITIAL LOAD LIBRARY
+loadLibrary(myLibrary)
