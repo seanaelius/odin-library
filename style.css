@@ -21,10 +21,11 @@ table, th, tr, td {
     border: 2px solid black;
     padding: 10px;
     width: 30em;
+    background-color: beige;
 }
 
 th {
-    background-color: aqua;
+    background-color: rgb(162, 75, 3);
 }
 
 header, footer {
@@ -33,7 +34,7 @@ header, footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: cyan;
+    background-color: rgb(162, 75, 3);
     border: 2px solid black;
 }
 
@@ -56,4 +57,14 @@ aside {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+main {
+    background-image: url("library-interior-interior-design-books-wallpaper-preview.jpg");
+    background-repeat: no-repeat, no-repeat;
+    background-size: 100% auto;
+}
+
+dialog{
+    margin-right: 10px;
 }

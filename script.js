@@ -9,58 +9,8 @@ let data = document.createElement("td");
 //ADD ROW TO TBODY
 tbody.appendChild(row);
 
-//CREATE ASIDE
-let bookAside = document.createElement("aside");
-
-//CREATE FORM
-let bookForm = document.createElement("form");
-bookForm.method = 'POST';
-
-//CREATE FORM FIELDS
-let titleInputDiv = document.createElement("div");
-let titleInput = document.createElement("input");
-let titleLabel = document.createElement("label");
-titleInput.type = 'text';
-titleLabel.textContent = "Title:"
-titleInputDiv.appendChild(titleLabel);
-titleInputDiv.appendChild(titleInput);
-
-let authorInputDiv = document.createElement("div");
-let authorInput = document.createElement("input");
-let authorLabel = document.createElement("label");
-authorInput.type = 'text';
-authorLabel.textContent = "Author:"
-authorInputDiv.appendChild(authorLabel);
-authorInputDiv.appendChild(authorInput);
-
-let pagesInputDiv = document.createElement("div");
-let pagesInput = document.createElement("input");
-let pagesLabel = document.createElement("label");
-pagesInput.type = 'text';
-pagesLabel.textContent = "Pages:"
-pagesInputDiv.appendChild(pagesLabel);
-pagesInputDiv.appendChild(pagesInput);
-
-let readInputDiv = document.createElement("div");
-let readInput = document.createElement("input");
-let readLabel = document.createElement("label");
-readInput.type = 'text';
-readLabel.textContent = "Read:"
-readInputDiv.appendChild(readLabel);
-readInputDiv.appendChild(readInput);
-
-
-//ADD FORM FIELDS TO FORM
-bookForm.appendChild(titleInputDiv)
-bookForm.appendChild(authorInputDiv)
-bookForm.appendChild(pagesInputDiv)
-bookForm.appendChild(readInputDiv)
-
-//ADD FORM SUBMIT BUTTON
-let submitButton = document.createElement("input")
-submitButton.type = "submit"
-submitButton.value = "Add Book!"
-bookForm.appendChild(submitButton)
+//DEFINE DIALOG ELEMENT
+const dialogAside = document.querySelector("dialog")
 
 
 //BOOK CONSTRUCTOR
@@ -116,10 +66,10 @@ const bookAddButton = document.querySelector("button#bookAdd");
 let i = 0;
 bookAddButton.addEventListener("click", () => {
     if (i == 0) {
-        bookAddButton.textContent = "Done adding a book!"
+        dialogAside.showModal()
         i += 1;
     } else {    
-        bookAddButton.textContent = "Add a book!"
+        dialogAside.close()
         i -= 1;
     }
 })
