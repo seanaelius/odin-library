@@ -7,7 +7,6 @@ const tbody = document.querySelector("tbody");
 let row = document.createElement("tr");
 let data = document.createElement("td");
 //ADD ROW TO TBODY
-tbody.appendChild(row);
 
 //DEFINE DIALOG ELEMENT
 const dialogAside = document.querySelector("dialog")
@@ -27,12 +26,16 @@ closeButton.addEventListener("click", ()=> {dialogAside.close()})
 const submitButton = document.querySelector("button#submit")
 submitButton.addEventListener("click", (event)=> {
     event.preventDefault()
-    var newTitle = titleInput.value
-    var newAuthor = authorInput.value
-    var newPages = pagesInput.value
+    let newTitle = titleInput.value
+    let newAuthor = authorInput.value
+    let newPages = pagesInput.value
     let haveRead = document.querySelector('input[name="read"]:checked').value;
 
+
+    clearLibrary(myLibrary)
+
     var newBook = new book(newTitle, newAuthor, newPages, haveRead)
+    
     addBookToLibrary(newBook)
     createRowAndCells(newBook)
 })
@@ -78,7 +81,7 @@ addBookToLibrary(new book('The Hobbit','J.R.R. Tolkien', '295', 'no'))
 //console.log(theHobbit)
 
 //LOAD LIBRARY ON PAGE FUNCTION
-function loadLibrary(library) {
+function displayLibrary(library) {
     for (const book in library) {
         createRowAndCells(library[book])
     }
@@ -93,8 +96,12 @@ function createRowAndCells(book) {
     }
 }
 
-
-
-
 //INITIAL LOAD LIBRARY
-loadLibrary(myLibrary)
+displayLibrary(myLibrary)
+
+function clearLibrary(library){ 
+    for (const book in library) {
+        let newRow = document.createElement("tr");
+        tbody.removeChild(tbody.lastChild)
+    }
+}
