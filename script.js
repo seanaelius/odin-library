@@ -93,19 +93,34 @@ function displayLibrary(library) {
 
 //CREATE ROW AND CELLS FUNCTION
 function createRowAndCells(item, itemNumber) {
+    //CREATE ROW
     let newRow = document.createElement("tr");
+    //SET DATASET NUMBER TO ROW
     newRow.dataset.bookNumber = `${itemNumber}`
     console.log(newRow.dataset.bookNumber)
+    //ADD ROW TO BODY
     tbody.appendChild(newRow);
+    //ADD INFO TO CELL
     for (var info in item){
         newRow.insertCell().textContent = `${item[info]}`;
     }
+    //ADD DELETE BUTTON
+    let deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete"
+    newRow.insertCell(-1).appendChild(deleteButton)
+
+
+    deleteButton.addEventListener("click", () => {
+        deleteBookFromLibrary(myLibrary, item)
+        newRow.remove()
+    })
 }
 
 
 
 //INITIAL LOAD LIBRARY
 displayLibrary(myLibrary)
+console.log(myLibrary)
 
 //CLEAR LIBRARY FUNCTIONS
 function clearLibrary(library){ 
@@ -116,4 +131,9 @@ function clearLibrary(library){
 
 function removeLast(){
     tbody.removeChild(tbody.lastChild)
+}
+
+function deleteBookFromLibrary(library, itemNumber){
+    //REMOVE FROM ARRAY
+    myLibrary.splice(itemNumber,1)
 }
