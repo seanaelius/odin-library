@@ -72,7 +72,7 @@ We can use this to save memory or inherit properties from the prototype*/
 /* This goes to another level, book.prototype inherits from Object.prototype */
 /* We can use Object.prototype to set other object's prototypes and allows it to inherit from multiple prototypes */
 
-const myLibrary= [];
+let myLibrary= [];
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
@@ -85,18 +85,24 @@ addBookToLibrary(new book('The Hobbit','J.R.R. Tolkien', '295', 'no'))
 //LOAD LIBRARY ON PAGE FUNCTION
 function displayLibrary(library) {
     for (const book in library) {
-        createRowAndCells(library[book])
+        createRowAndCells(library[book], book)
     }
 }
 
+
+
 //CREATE ROW AND CELLS FUNCTION
-function createRowAndCells(book) {
+function createRowAndCells(item, itemNumber) {
     let newRow = document.createElement("tr");
+    newRow.dataset.bookNumber = `${itemNumber}`
+    console.log(newRow.dataset.bookNumber)
     tbody.appendChild(newRow);
-    for (var info in book){
-        newRow.insertCell().textContent = `${book[info]}`;
+    for (var info in item){
+        newRow.insertCell().textContent = `${item[info]}`;
     }
 }
+
+
 
 //INITIAL LOAD LIBRARY
 displayLibrary(myLibrary)
