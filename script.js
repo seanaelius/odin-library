@@ -95,9 +95,6 @@ function displayLibrary(library) {
 function createRowAndCells(item, itemNumber) {
     //CREATE ROW
     let newRow = document.createElement("tr");
-    //SET DATASET NUMBER TO ROW
-    newRow.dataset.bookNumber = `${itemNumber}`
-    console.log(newRow.dataset.bookNumber)
     //ADD ROW TO BODY
     tbody.appendChild(newRow);
     //ADD INFO TO CELL
@@ -120,7 +117,6 @@ function createRowAndCells(item, itemNumber) {
 
 //INITIAL LOAD LIBRARY
 displayLibrary(myLibrary)
-console.log(myLibrary)
 
 //CLEAR LIBRARY FUNCTIONS
 function clearLibrary(library){ 
