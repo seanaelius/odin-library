@@ -124,10 +124,20 @@ function createRowAndCells(item, itemNumber) {
     actionCell.appendChild(readStatusButton)
 
     //READ BUTTON FUNCTION
-
+    readStatusButton.addEventListener("click", ()=> {
+        toggleRead(item)
+        updateLibrary(myLibrary)
+    })
 }
 
-
+//TOGGLE READ FUNCTION
+function toggleRead(item) {
+    if (item.read == "yes"){
+        item.read = "no"
+    } else {
+        item.read = "yes"
+    }
+}
 
 //INITIAL LOAD LIBRARY
 displayLibrary(myLibrary)
@@ -137,6 +147,11 @@ function clearLibrary(library){
     for (const book in library) {
         removeLast()
     }
+}
+
+function updateLibrary(library){
+    clearLibrary(library)
+    displayLibrary(library)
 }
 
 function removeLast(){
