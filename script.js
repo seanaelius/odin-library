@@ -97,20 +97,34 @@ function createRowAndCells(item, itemNumber) {
     let newRow = document.createElement("tr");
     //ADD ROW TO BODY
     tbody.appendChild(newRow);
-    //ADD INFO TO CELL
+
+    //ADD ALL INFORMATION TO CELL
     for (var info in item){
         newRow.insertCell().textContent = `${item[info]}`;
     }
+
+    //ADD ACTIONS CELL (FAR RIGHT)
+    let actionCell = document.createElement("td")
+
     //ADD DELETE BUTTON
     let deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete"
-    newRow.insertCell(-1).appendChild(deleteButton)
+    newRow.appendChild(actionCell)
+    actionCell.appendChild(deleteButton)
 
-
+    //DELETE BUTTON FUNCTION
     deleteButton.addEventListener("click", () => {
         deleteBookFromLibrary(myLibrary, item)
         newRow.remove()
     })
+
+    //ADD READ TOGGLE BUTTON
+    let readStatusButton = document.createElement("button");
+    readStatusButton.textContent = "Read"
+    actionCell.appendChild(readStatusButton)
+
+    //READ BUTTON FUNCTION
+
 }
 
 
